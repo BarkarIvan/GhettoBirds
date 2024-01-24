@@ -3,6 +3,8 @@
     "com.barkar.techart": "https://github.com/BarkarIvan/TechArtTools.git",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.device-simulator.devices": "1.0.0",
+    "com.unity.entities": "1.0.16",
+    "com.unity.entities.graphics": "1.0.16",
     "com.unity.feature.development": "1.0.2",
     "com.unity.render-pipelines.universal": "16.0.5",
     "com.unity.timeline": "1.8.6",
