@@ -80,11 +80,11 @@ MonoBehaviour:
   RenderPassEvent: 500
   Resources: {fileID: 11400000, guid: 81c383c2876b1594e94f2e2c7fb69d76, type: 2}
   Downsample: 1
-  HDRThreshold: 2
-  HDRSoftThreshold: 0
+  HDRThreshold: 1
+  HDRSoftThreshold: 1
   Intensity: 1
   UseLensDirt: 1
   LensDirtIntensity: 2
   BlurSettings:
-    PassesCount: 4
-    BlurOffset: 4
+    PassesCount: 2
+    BlurOffset: 2
