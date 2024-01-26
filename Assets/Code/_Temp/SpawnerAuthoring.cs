@@ -5,7 +5,6 @@ public class SpawnerAuthoring : MonoBehaviour
 {
     public GameObject Prefab;
     public float SpawnRate;
-    
 }
 
 class SpawnerBaker : Baker<SpawnerAuthoring>

@@ -11,6 +11,9 @@ public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomAction
     private float2 _touchDelta;
     private bool _accelerate;
 
+    private Plane _plane;
+    private Camera _mainCamera;
+
     private EntityQuery _playerInputQuery;
 
 

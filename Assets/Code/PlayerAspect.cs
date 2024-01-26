@@ -14,6 +14,12 @@ readonly partial struct PlayerAspect : IAspect
         set => Transform.ValueRW.Position = value;
     }
 
+    public quaternion Rotation
+    {
+        get => Transform.ValueRO.Rotation;
+        set => Transform.ValueRW.Rotation = value;
+    }
+
    // public float3 Speed
     //{
         //get form comp

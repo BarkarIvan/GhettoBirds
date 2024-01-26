@@ -13,8 +13,6 @@ public class DroneAuthoring : MonoBehaviour
         {
             var droneEntity = GetEntity(authoring.gameObject, TransformUsageFlags.Dynamic);
             AddComponent<PlayerTag>(droneEntity);
-            AddComponent<PlayerInput>(droneEntity);
-           // AddComponent<LocalTransform>(droneEntity);
         }
     }
 }

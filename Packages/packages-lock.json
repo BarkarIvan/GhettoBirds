@@ -7,7 +7,7 @@
       "dependencies": {
         "com.unity.render-pipelines.universal": "14.0.0"
       },
-      "hash": "0d3eecbe66f1cb9c7e5f5e0901609d1ede909e57"
+      "hash": "edb27dde8a1ded0861d17283b5b464e78e325b93"
     },
     "com.unity.burst": {
       "version": "1.8.11",
