@@ -43,7 +43,6 @@ public partial struct SpawnerSystem : ISystem
                 Entity newBullet = Ecb.Instantiate(chunkIndex, spawner.Prefab);
                 Ecb.SetComponent(chunkIndex, newBullet, LocalTransform.FromPosition(spawner.SpawnPosition));
                 spawner.NextSpawnTime = (float)ElapsedTime + spawner.SpawnRate;
-                
             }
         }
     }

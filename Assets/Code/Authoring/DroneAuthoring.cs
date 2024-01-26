@@ -1,4 +1,5 @@
 using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 
 public class DroneAuthoring : MonoBehaviour
@@ -11,11 +12,14 @@ public class DroneAuthoring : MonoBehaviour
         public override void Bake(DroneAuthoring authoring)
         {
             var droneEntity = GetEntity(authoring.gameObject, TransformUsageFlags.Dynamic);
-            AddComponent<DroneTag>(droneEntity);
+            AddComponent<PlayerTag>(droneEntity);
             AddComponent<PlayerInput>(droneEntity);
+           // AddComponent<LocalTransform>(droneEntity);
         }
     }
 }
 
-public struct DroneTag : IComponentData
-{ }
+public struct PlayerTag : IComponentData
+{
+   
+}

@@ -3,12 +3,13 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Vector3 = System.Numerics.Vector3;
 
-public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomActions
+public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomActions //GameInput - имя задал при кодогене
 {
     private GameInput _gameInput;
     private float2 _move;
+    private float2 _touchDelta;
+    private bool _accelerate;
 
     private EntityQuery _playerInputQuery;
 
@@ -18,7 +19,6 @@ public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomAction
         _gameInput = new GameInput();
         _gameInput.PlayerCustom.SetCallbacks(this);
         _playerInputQuery = GetEntityQuery(typeof(PlayerInput));
-        
     }
 
     protected override void OnStartRunning() => _gameInput.Enable();
@@ -30,7 +30,7 @@ public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomAction
         if (_playerInputQuery.CalculateEntityCount() == 0) EntityManager.CreateEntity(typeof(PlayerInput));
         _playerInputQuery.SetSingleton(new PlayerInput
         {
-            Move =  _move
+            TouchDelta =  _touchDelta
         });
 
     }
@@ -42,12 +42,12 @@ public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomAction
 
     public void OnLook(InputAction.CallbackContext context)
     {
-       Debug.Log("look");
+        _touchDelta = context.ReadValue<Vector2>();
     }
-
-    public void OnFire(InputAction.CallbackContext context)
+    
+    public void OnAccelerate(InputAction.CallbackContext context)
     {
-       Debug.Log("onFire");
+        _accelerate = context.performed;
     }
 }
 

@@ -24,9 +24,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Accelerate",
                     "type": "Button",
-                    "id": "b12b89e6-07da-4862-a85e-d4b4b400a115",
+                    "id": "01eb9d75-f8e5-4dd0-8f12-021523547ecd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -201,56 +201,12 @@
                 },
                 {
                     "name": "",
-                    "id": "2d441048-e14e-41fc-9285-444b4b8a2ae4",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "52e871b3-d641-4e26-a9fa-1f5f7d695df3",
+                    "path": "<Pointer>/press",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "57b612a1-b2ea-441b-8db8-33d1d6d4cdab",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5afd6a3c-0a17-464a-91b9-41ac38fd85fd",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fce6cfdd-06bf-4cd8-9899-a3822f55b071",
-                    "path": "<Joystick>/trigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "96de5bab-3813-483a-9b08-56ecbd050311",
-                    "path": "<XRController>/{PrimaryAction}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "Fire",
+                    "groups": "",
+                    "action": "Accelerate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -48,9 +48,9 @@ namespace GhettoBirds.Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Accelerate"",
                     ""type"": ""Button"",
-                    ""id"": ""b12b89e6-07da-4862-a85e-d4b4b400a115"",
+                    ""id"": ""01eb9d75-f8e5-4dd0-8f12-021523547ecd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -225,56 +225,12 @@ namespace GhettoBirds.Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2d441048-e14e-41fc-9285-444b4b8a2ae4"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""id"": ""52e871b3-d641-4e26-a9fa-1f5f7d695df3"",
+                    ""path"": ""<Pointer>/press"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""57b612a1-b2ea-441b-8db8-33d1d6d4cdab"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5afd6a3c-0a17-464a-91b9-41ac38fd85fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fce6cfdd-06bf-4cd8-9899-a3822f55b071"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""96de5bab-3813-483a-9b08-56ecbd050311"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""groups"": """",
+                    ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -803,7 +759,7 @@ namespace GhettoBirds.Input
             m_PlayerCustom = asset.FindActionMap("PlayerCustom", throwIfNotFound: true);
             m_PlayerCustom_Move = m_PlayerCustom.FindAction("Move", throwIfNotFound: true);
             m_PlayerCustom_Look = m_PlayerCustom.FindAction("Look", throwIfNotFound: true);
-            m_PlayerCustom_Fire = m_PlayerCustom.FindAction("Fire", throwIfNotFound: true);
+            m_PlayerCustom_Accelerate = m_PlayerCustom.FindAction("Accelerate", throwIfNotFound: true);
             // UICustom
             m_UICustom = asset.FindActionMap("UICustom", throwIfNotFound: true);
             m_UICustom_Navigate = m_UICustom.FindAction("Navigate", throwIfNotFound: true);
@@ -879,14 +835,14 @@ namespace GhettoBirds.Input
         private List<IPlayerCustomActions> m_PlayerCustomActionsCallbackInterfaces = new List<IPlayerCustomActions>();
         private readonly InputAction m_PlayerCustom_Move;
         private readonly InputAction m_PlayerCustom_Look;
-        private readonly InputAction m_PlayerCustom_Fire;
+        private readonly InputAction m_PlayerCustom_Accelerate;
         public struct PlayerCustomActions
         {
             private @GameInput m_Wrapper;
             public PlayerCustomActions(@GameInput wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_PlayerCustom_Move;
             public InputAction @Look => m_Wrapper.m_PlayerCustom_Look;
-            public InputAction @Fire => m_Wrapper.m_PlayerCustom_Fire;
+            public InputAction @Accelerate => m_Wrapper.m_PlayerCustom_Accelerate;
             public InputActionMap Get() { return m_Wrapper.m_PlayerCustom; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -902,9 +858,9 @@ namespace GhettoBirds.Input
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @Accelerate.started += instance.OnAccelerate;
+                @Accelerate.performed += instance.OnAccelerate;
+                @Accelerate.canceled += instance.OnAccelerate;
             }
 
             private void UnregisterCallbacks(IPlayerCustomActions instance)
@@ -915,9 +871,9 @@ namespace GhettoBirds.Input
                 @Look.started -= instance.OnLook;
                 @Look.performed -= instance.OnLook;
                 @Look.canceled -= instance.OnLook;
-                @Fire.started -= instance.OnFire;
-                @Fire.performed -= instance.OnFire;
-                @Fire.canceled -= instance.OnFire;
+                @Accelerate.started -= instance.OnAccelerate;
+                @Accelerate.performed -= instance.OnAccelerate;
+                @Accelerate.canceled -= instance.OnAccelerate;
             }
 
             public void RemoveCallbacks(IPlayerCustomActions instance)
@@ -1057,7 +1013,7 @@ namespace GhettoBirds.Input
         {
             void OnMove(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
-            void OnFire(InputAction.CallbackContext context);
+            void OnAccelerate(InputAction.CallbackContext context);
         }
         public interface IUICustomActions
         {
