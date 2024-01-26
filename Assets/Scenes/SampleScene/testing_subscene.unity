@@ -236,11 +236,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471037963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebcb9481b8076e54d967eef329346aa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 42823ddb7d0462049b962978152a1715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 6931768028674584253, guid: 56bddc76629d7a84782c92e5f0fae638, type: 3}
-  SpawnRate: 1
+  Speed: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
