@@ -30,25 +30,34 @@ namespace GhettoBirds.Player.Movement
 
             var transform = SystemAPI.GetAspect<PlayerAspect>(player);
 
-
+            var dt = SystemAPI.Time.DeltaTime;
+            var delta = input.TouchDelta;
+            
+            if (math.lengthsq(delta) > 0.0001f) // Используем квадрат длины для проверки, чтобы избежать квадратного корня
+            {
+                delta = math.normalize(delta) * transform.RotationSpeed;
+            }
+            else
+            {
+                delta = float2.zero;
+            }
+          
             //rotation
-            var delta = input.TouchDelta * SystemAPI.Time.DeltaTime;
-            var yaw = quaternion.EulerXYZ(0, delta.x, 0);
-            var pitch = quaternion.EulerXYZ(-delta.y, 0, 0);
+            float3 currentInertia = transform.Inertia; 
+            var inertiaFactor = transform.RotationInertiaFactor;
+            currentInertia.x = Mathf.Lerp(currentInertia.x, delta.x, inertiaFactor);
+            currentInertia.y = Mathf.Lerp(currentInertia.y, -delta.y, inertiaFactor);
+            transform.Inertia = currentInertia;
+
+            var yaw = quaternion.EulerXYZ(0, currentInertia.x, 0);
+            var pitch = quaternion.EulerXYZ(currentInertia.y, 0, 0);
 
             var currentRotation = transform.Rotation;
-            var currentYawPitch = new quaternion(currentRotation.value.x,
-                currentRotation.value.y, 0,
-                currentRotation.value.w);
-           
-            var newRotation = math.mul(yaw, currentYawPitch);
-            newRotation = math.mul(pitch, newRotation);
-            
-            newRotation = new quaternion(newRotation.value.x,
-                newRotation.value.y, currentYawPitch.value.z,
-                newRotation.value.w);
+            var newRotation = math.mul(currentRotation, yaw);
+            newRotation = math.mul(newRotation, pitch);
             newRotation = math.normalize(newRotation);
-            transform.Rotation = newRotation;
+            
+            transform.Rotation = math.slerp(math.normalize(currentRotation), math.normalize(newRotation),  dt);
         }
     }
 }
