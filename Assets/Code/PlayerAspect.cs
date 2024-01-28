@@ -15,16 +15,19 @@ readonly partial struct PlayerAspect : IAspect
         set => _transform.ValueRW.Position = value;
     }
 
+
+    public float3 Forward => _transform.ValueRO.Forward();
+
     public quaternion Rotation
     {
         get => _transform.ValueRO.Rotation;
         set => _transform.ValueRW.Rotation = value;
     }
 
-    public float3 RotationVelocity
+    public float3 Velocity
     {
-        get => _droneComponent.ValueRO.RotationVelocity;
-        set => _droneComponent.ValueRW.RotationVelocity = value;
+        get => _droneComponent.ValueRO.Velocity;
+        set => _droneComponent.ValueRW.Velocity = value;
     }
     
     
@@ -36,28 +39,18 @@ readonly partial struct PlayerAspect : IAspect
     
     public float RotationInertiaFactor
     {
-        get => _droneComponent.ValueRO.RotationEnertiaFactor;
-        set => _droneComponent.ValueRW.RotationEnertiaFactor = value;
+        get => _droneComponent.ValueRO.RotationInertiaFactor;
+        set => _droneComponent.ValueRW.RotationInertiaFactor = value;
     }
     
-    public float RotationResistance
+    
+    public float DefaultSpeed
     {
-        get => _droneComponent.ValueRO.RotationResistanceFactor;
-        set => _droneComponent.ValueRW.RotationResistanceFactor = value;
+        get => _droneComponent.ValueRO.DefaultSpeed;
+        set => _droneComponent.ValueRW.DefaultSpeed = value;
     }
     
-    public float MaxSpeed
-    {
-        get => _droneComponent.ValueRO.MaxSpeed;
-        set => _droneComponent.ValueRW.MaxSpeed = value;
-    }
-    
-    public float Sensitivity
-    {
-        get => _droneComponent.ValueRO.Sensitivity;
-        set => _droneComponent.ValueRW.Sensitivity = value;
-    }
-    
+  
     public float3 Inertia
     {
         get => _droneComponent.ValueRO.Inertia;

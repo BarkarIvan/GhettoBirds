@@ -30,16 +30,7 @@ namespace GhettoBirds.Input
             ""id"": ""abc253db-88f8-42c1-ae46-004d97f149f8"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""aca01319-dab8-4361-860e-d84fd265527c"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Look"",
+                    ""name"": ""PointerSwipe"",
                     ""type"": ""Value"",
                     ""id"": ""d80ea5bf-6853-44f7-aeaa-e65b5329f9c3"",
                     ""expectedControlType"": ""Vector2"",
@@ -48,7 +39,7 @@ namespace GhettoBirds.Input
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Accelerate"",
+                    ""name"": ""PointerPress"",
                     ""type"": ""Button"",
                     ""id"": ""01eb9d75-f8e5-4dd0-8f12-021523547ecd"",
                     ""expectedControlType"": ""Button"",
@@ -60,144 +51,12 @@ namespace GhettoBirds.Input
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""d357595a-740b-4b26-b5d4-19d5a3e4bdc4"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""bde4597e-831e-4c65-915c-eccf1d32cd2c"",
-                    ""path"": ""Dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""2d0c90ea-9167-49d5-a911-25c7ee35c088"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""d43eaa33-9339-4b23-ab1a-9660f58dc997"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""71272740-9593-4e9f-b02c-ef94f2df49e9"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""ea0e1ff6-f1c7-4150-8b09-55f63b102f02"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""ff56919f-682c-463d-950f-a8d1841c3193"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""f340a5bc-32ee-4aaf-b98b-ca81d7eab6c3"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""c820ad98-3292-4bc1-a818-a920df0705ef"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""346f2057-866c-4935-bd8c-66ec8dcabbdc"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c86a5010-a9ee-45ae-bbdb-9378a6932665"",
-                    ""path"": ""<XRController>/{Primary2DAxis}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f48e7068-fd04-4799-af34-3a250a8d5db5"",
-                    ""path"": ""<Joystick>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""da10743b-46f9-43b3-8e0e-771a821bf471"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
+                    ""action"": ""PointerSwipe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -206,9 +65,9 @@ namespace GhettoBirds.Input
                     ""id"": ""28897437-1894-4bcd-bd11-da489930c1a6"",
                     ""path"": ""<Pointer>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""groups"": "";Keyboard&Mouse;Touch"",
-                    ""action"": ""Look"",
+                    ""action"": ""PointerSwipe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -219,7 +78,7 @@ namespace GhettoBirds.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
+                    ""action"": ""PointerSwipe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -230,7 +89,7 @@ namespace GhettoBirds.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""PointerPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -757,9 +616,8 @@ namespace GhettoBirds.Input
 }");
             // PlayerCustom
             m_PlayerCustom = asset.FindActionMap("PlayerCustom", throwIfNotFound: true);
-            m_PlayerCustom_Move = m_PlayerCustom.FindAction("Move", throwIfNotFound: true);
-            m_PlayerCustom_Look = m_PlayerCustom.FindAction("Look", throwIfNotFound: true);
-            m_PlayerCustom_Accelerate = m_PlayerCustom.FindAction("Accelerate", throwIfNotFound: true);
+            m_PlayerCustom_PointerSwipe = m_PlayerCustom.FindAction("PointerSwipe", throwIfNotFound: true);
+            m_PlayerCustom_PointerPress = m_PlayerCustom.FindAction("PointerPress", throwIfNotFound: true);
             // UICustom
             m_UICustom = asset.FindActionMap("UICustom", throwIfNotFound: true);
             m_UICustom_Navigate = m_UICustom.FindAction("Navigate", throwIfNotFound: true);
@@ -833,16 +691,14 @@ namespace GhettoBirds.Input
         // PlayerCustom
         private readonly InputActionMap m_PlayerCustom;
         private List<IPlayerCustomActions> m_PlayerCustomActionsCallbackInterfaces = new List<IPlayerCustomActions>();
-        private readonly InputAction m_PlayerCustom_Move;
-        private readonly InputAction m_PlayerCustom_Look;
-        private readonly InputAction m_PlayerCustom_Accelerate;
+        private readonly InputAction m_PlayerCustom_PointerSwipe;
+        private readonly InputAction m_PlayerCustom_PointerPress;
         public struct PlayerCustomActions
         {
             private @GameInput m_Wrapper;
             public PlayerCustomActions(@GameInput wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Move => m_Wrapper.m_PlayerCustom_Move;
-            public InputAction @Look => m_Wrapper.m_PlayerCustom_Look;
-            public InputAction @Accelerate => m_Wrapper.m_PlayerCustom_Accelerate;
+            public InputAction @PointerSwipe => m_Wrapper.m_PlayerCustom_PointerSwipe;
+            public InputAction @PointerPress => m_Wrapper.m_PlayerCustom_PointerPress;
             public InputActionMap Get() { return m_Wrapper.m_PlayerCustom; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -852,28 +708,22 @@ namespace GhettoBirds.Input
             {
                 if (instance == null || m_Wrapper.m_PlayerCustomActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_PlayerCustomActionsCallbackInterfaces.Add(instance);
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
-                @Accelerate.started += instance.OnAccelerate;
-                @Accelerate.performed += instance.OnAccelerate;
-                @Accelerate.canceled += instance.OnAccelerate;
+                @PointerSwipe.started += instance.OnPointerSwipe;
+                @PointerSwipe.performed += instance.OnPointerSwipe;
+                @PointerSwipe.canceled += instance.OnPointerSwipe;
+                @PointerPress.started += instance.OnPointerPress;
+                @PointerPress.performed += instance.OnPointerPress;
+                @PointerPress.canceled += instance.OnPointerPress;
             }
 
             private void UnregisterCallbacks(IPlayerCustomActions instance)
             {
-                @Move.started -= instance.OnMove;
-                @Move.performed -= instance.OnMove;
-                @Move.canceled -= instance.OnMove;
-                @Look.started -= instance.OnLook;
-                @Look.performed -= instance.OnLook;
-                @Look.canceled -= instance.OnLook;
-                @Accelerate.started -= instance.OnAccelerate;
-                @Accelerate.performed -= instance.OnAccelerate;
-                @Accelerate.canceled -= instance.OnAccelerate;
+                @PointerSwipe.started -= instance.OnPointerSwipe;
+                @PointerSwipe.performed -= instance.OnPointerSwipe;
+                @PointerSwipe.canceled -= instance.OnPointerSwipe;
+                @PointerPress.started -= instance.OnPointerPress;
+                @PointerPress.performed -= instance.OnPointerPress;
+                @PointerPress.canceled -= instance.OnPointerPress;
             }
 
             public void RemoveCallbacks(IPlayerCustomActions instance)
@@ -1011,9 +861,8 @@ namespace GhettoBirds.Input
         public UICustomActions @UICustom => new UICustomActions(this);
         public interface IPlayerCustomActions
         {
-            void OnMove(InputAction.CallbackContext context);
-            void OnLook(InputAction.CallbackContext context);
-            void OnAccelerate(InputAction.CallbackContext context);
+            void OnPointerSwipe(InputAction.CallbackContext context);
+            void OnPointerPress(InputAction.CallbackContext context);
         }
         public interface IUICustomActions
         {

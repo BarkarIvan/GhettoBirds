@@ -1,8 +1,6 @@
 using Unity.Burst;
-using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace GhettoBirds.Player.Movement
@@ -25,39 +23,35 @@ namespace GhettoBirds.Player.Movement
             //var config = SystemAPI.GetSingleton<Config>();
 
             var input = SystemAPI.GetSingleton<PlayerInput>();
+            if (!input.Accelerate) return;
+            
+            var playerTag = SystemAPI.GetSingletonEntity<PlayerTag>();
 
-            var player = SystemAPI.GetSingletonEntity<PlayerTag>();
-
-            var transform = SystemAPI.GetAspect<PlayerAspect>(player);
+            var player = SystemAPI.GetAspect<PlayerAspect>(playerTag);
 
             var dt = SystemAPI.Time.DeltaTime;
             var delta = input.TouchDelta;
             
-            if (math.lengthsq(delta) > 0.0001f) // Используем квадрат длины для проверки, чтобы избежать квадратного корня
-            {
-                delta = math.normalize(delta) * transform.RotationSpeed;
-            }
-            else
-            {
-                delta = float2.zero;
-            }
-          
+            delta *= player.RotationSpeed;
+            
             //rotation
-            float3 currentInertia = transform.Inertia; 
-            var inertiaFactor = transform.RotationInertiaFactor;
+            float3 currentInertia = player.Inertia; 
+            var inertiaFactor = player.RotationInertiaFactor;
             currentInertia.x = Mathf.Lerp(currentInertia.x, delta.x, inertiaFactor);
             currentInertia.y = Mathf.Lerp(currentInertia.y, -delta.y, inertiaFactor);
-            transform.Inertia = currentInertia;
+            player.Inertia = currentInertia;
 
             var yaw = quaternion.EulerXYZ(0, currentInertia.x, 0);
             var pitch = quaternion.EulerXYZ(currentInertia.y, 0, 0);
 
-            var currentRotation = transform.Rotation;
+            var currentRotation = player.Rotation;
             var newRotation = math.mul(currentRotation, yaw);
             newRotation = math.mul(newRotation, pitch);
             newRotation = math.normalize(newRotation);
             
-            transform.Rotation = math.slerp(math.normalize(currentRotation), math.normalize(newRotation),  dt);
+            player.Rotation = math.slerp(math.normalize(currentRotation), math.normalize(newRotation),  dt);
+           
+            player.Position += player.Forward * player.DefaultSpeed * dt;
         }
     }
 }

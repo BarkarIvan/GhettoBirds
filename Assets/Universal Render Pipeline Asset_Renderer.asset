@@ -86,5 +86,5 @@ MonoBehaviour:
   UseLensDirt: 1
   LensDirtIntensity: 2
   BlurSettings:
-    PassesCount: 2
-    BlurOffset: 2
+    PassesCount: 3
+    BlurOffset: 4

@@ -4,10 +4,9 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomActions //GameInput - имя задал при кодогене
+public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomActions 
 {
     private GameInput _gameInput;
-    private float2 _move;
     private float2 _touchDelta;
     private bool _accelerate;
 
@@ -15,13 +14,15 @@ public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomAction
     private Camera _mainCamera;
 
     private EntityQuery _playerInputQuery;
+    private Entity _playerInput;
 
 
     protected override void OnCreate()
     {
         _gameInput = new GameInput();
         _gameInput.PlayerCustom.SetCallbacks(this);
-        _playerInputQuery = GetEntityQuery(typeof(PlayerInput));
+        
+        _playerInput = EntityManager.CreateEntity(typeof(PlayerInput));
     }
 
     protected override void OnStartRunning() => _gameInput.Enable();
@@ -30,25 +31,18 @@ public partial class GameInputSystem : SystemBase, GameInput.IPlayerCustomAction
 
     protected override void OnUpdate()
     {
-        if (_playerInputQuery.CalculateEntityCount() == 0) EntityManager.CreateEntity(typeof(PlayerInput));
-        _playerInputQuery.SetSingleton(new PlayerInput
-        {
-            TouchDelta =  _touchDelta
-        });
-
+        var comp = SystemAPI.GetComponentRW<PlayerInput>(_playerInput);
+        comp.ValueRW.TouchDelta = _touchDelta;
+        comp.ValueRW.Accelerate = _accelerate;
     }
+    
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        _move = context.ReadValue<Vector2>();
-    }
-
-    public void OnLook(InputAction.CallbackContext context)
+    public void OnPointerSwipe(InputAction.CallbackContext context)
     {
         _touchDelta = context.ReadValue<Vector2>();
     }
     
-    public void OnAccelerate(InputAction.CallbackContext context)
+    public void OnPointerPress(InputAction.CallbackContext context)
     {
         _accelerate = context.performed;
     }
