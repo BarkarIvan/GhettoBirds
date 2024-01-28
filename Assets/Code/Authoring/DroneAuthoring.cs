@@ -15,9 +15,9 @@ public class DroneAuthoring : MonoBehaviour
             //TODO from config
             AddComponent(droneEntity, new DroneComponent
             {
-                DefaultSpeed = 5f, //config
+                DefaultSpeed = 20f, //config
                 RotationInertiaFactor = 0.2f, //config
-                RotationSpeed = 3f, //config
+                RotationSpeed = 5f, //config
                 Inertia =  0,
                 Velocity = 0
             });
