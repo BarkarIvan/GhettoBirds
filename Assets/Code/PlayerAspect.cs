@@ -1,13 +1,15 @@
 
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Physics;
 using Unity.Transforms;
 
 readonly partial struct PlayerAspect : IAspect
 {
     public readonly Entity Self;
     private readonly RefRW<LocalTransform> _transform;
-    private readonly RefRW<DroneComponent> _droneComponent;
+    private readonly RefRW<DroneControllerComponent> _droneComponent;
+    private readonly RefRW<DroneControllerInternal> _droneInternalComponent;
 
     public float3 Position
     {
@@ -24,10 +26,10 @@ readonly partial struct PlayerAspect : IAspect
         set => _transform.ValueRW.Rotation = value;
     }
 
-    public float3 Velocity
+    public PhysicsVelocity Velocity
     {
-        get => _droneComponent.ValueRO.Velocity;
-        set => _droneComponent.ValueRW.Velocity = value;
+        get => _droneInternalComponent.ValueRO.Velocity;
+        set => _droneInternalComponent.ValueRW.Velocity = value;
     }
     
     
@@ -35,26 +37,6 @@ readonly partial struct PlayerAspect : IAspect
     {
         get => _droneComponent.ValueRO.RotationSpeed;
         set => _droneComponent.ValueRW.RotationSpeed = value;
-    }
-    
-    public float RotationInertiaFactor
-    {
-        get => _droneComponent.ValueRO.RotationInertiaFactor;
-        set => _droneComponent.ValueRW.RotationInertiaFactor = value;
-    }
-    
-    
-    public float DefaultSpeed
-    {
-        get => _droneComponent.ValueRO.DefaultSpeed;
-        set => _droneComponent.ValueRW.DefaultSpeed = value;
-    }
-    
-  
-    public float3 Inertia
-    {
-        get => _droneComponent.ValueRO.Inertia;
-        set => _droneComponent.ValueRW.Inertia = value;
     }
     
 }

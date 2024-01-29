@@ -7,7 +7,7 @@
       "dependencies": {
         "com.unity.render-pipelines.universal": "14.0.0"
       },
-      "hash": "edb27dde8a1ded0861d17283b5b464e78e325b93"
+      "hash": "df7ab77e049defa5547a8b3d677a600fb64ce77b"
     },
     "com.unity.burst": {
       "version": "1.8.11",
@@ -155,6 +155,20 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.physics": {
+      "version": "1.0.16",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.8.8",
+        "com.unity.collections": "2.1.4",
+        "com.unity.entities": "1.0.16",
+        "com.unity.mathematics": "1.2.6",
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.profiling.core": {
